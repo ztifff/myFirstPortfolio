@@ -1,0 +1,8 @@
+
+[data-aos]:not(img):not(input):not(textarea):not(button):not(form) {
+    overflow-x: clip !important;
+    overflow-y: visible;
+    max-width: 100% !important;
+    transform-origin: center !important;
+  }
+  
