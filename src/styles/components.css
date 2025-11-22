@@ -2,7 +2,6 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   background: rgba(255, 255, 255, 0.05); 
   backdrop-filter: blur(6px);
-  boxShadow: `0 0 10px ${skill.color}55`,
 }
 
 .skill-card:hover {
@@ -13,4 +12,5 @@
 .skill-card:active {
   transform: scale(1.05);
 }
+
 
