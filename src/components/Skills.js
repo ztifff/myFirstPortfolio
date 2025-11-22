@@ -1,5 +1,5 @@
 import React from "react";
-import skills from "../data/skills"; // make sure the path is correct
+import skills from "../data/skills";
 
 export default function Skills() {
   return (
@@ -10,24 +10,27 @@ export default function Skills() {
       data-aos-duration="1000"
     >
       <h2 className="text-center mb-4">Skills</h2>
-      <div className="row justify-content-center">
+
+      <div className="row justify-content-center g-4">
         {skills.map((skill, idx) => (
           <div
             key={idx}
-            className="col-6 col-md-3 mb-3 text-center"
+            className="col-6 col-md-4 col-lg-3 text-center"
             data-aos="zoom-in"
-            data-aos-delay={idx * 150} // stagger animation
-            data-aos-duration="800"
+            data-aos-delay={idx * 150}
           >
             <div
-              className="border p-3 rounded shadow-sm d-flex flex-column align-items-center"
-              style={{ borderColor: skill.color }}
+              className="skill-card p-4 rounded shadow-sm d-flex flex-column align-items-center"
+              style={{
+                border: `2px solid ${skill.color}`,
+                boxShadow: `0 0 10px ${skill.color}55`,
+              }}
             >
               <i
-                className={`${skill.icon} fa-2x mb-2`}
+                className={`${skill.icon} fa-3x mb-3`}
                 style={{ color: skill.color }}
               ></i>
-              <span>{skill.name}</span>
+              <span className="fw-semibold">{skill.name}</span>
             </div>
           </div>
         ))}
