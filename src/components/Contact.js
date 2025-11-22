@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -7,11 +8,28 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thanks, ${formData.name}! Message sent.`);
-    setFormData({ name: "", email: "", message: "" });
+  
+    emailjs
+      .send(
+        "service_idysibr",
+        "template_65e62ir",
+        formData,
+        "S0wi9CnO2AuD3SvPO"
+      )
+      .then(
+        () => {
+          alert(`Thanks, ${formData.name}! Your message has been sent.`);
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("Email error:", error);
+          alert("Failed to send message. Please try again.");
+        }
+      );
   };
+  
 
   return (
     <section
