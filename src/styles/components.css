@@ -13,4 +13,16 @@
   transform: scale(1.05);
 }
 
+.footer-social {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 0.8;
+}
+
+.footer-social:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+
+
 
