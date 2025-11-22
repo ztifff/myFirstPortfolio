@@ -1,0 +1,15 @@
+.skill-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: rgba(255, 255, 255, 0.05); /* subtle transparent background */
+  backdrop-filter: blur(6px);
+}
+
+.skill-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 18px var(--skill-color);
+}
+
+/* Prevent hover breaking layout */
+.skill-card:active {
+  transform: scale(1.05);
+}
