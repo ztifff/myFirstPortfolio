@@ -18,7 +18,7 @@ export default function Footer({ isDark }) {
         style={{ maxWidth: "600px", margin: "0 auto" }}
       >
         Passionate web developer dedicated to creating modern, responsive, and user-focused
-        interfaces. Thank you for exploring my work—feel free to connect with me anytime.
+        interfaces. Thank you for exploring my work, feel free to connect with me anytime.
       </p>
 
       <div className="d-flex justify-content-center gap-3">
