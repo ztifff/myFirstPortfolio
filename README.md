@@ -1,188 +1,102 @@
-# 🐳 Docker React Development Environment
+# My First Portfolio
 
-A complete Docker-based development and production environment for React applications with hot reload, optimized builds, and production-ready deployment.
+Welcome to **My First Portfolio**, a personal website built with **React** and **Bootstrap** to showcase my work, skills, and growth as a front-end developer.
 
-## 🚀 Quick Start
-
-### Development Mode (Recommended for coding)
----powershell
-# Easy way - use the script
-.\start-dev.ps1
-
-# Manual way
-docker-compose up -d
-
-
-### Production Mode (Optimized build)
----powershell
-# Easy way - use the script  
-.\start-prod.ps1
-
-# Manual way
-docker-compose -f docker-compose.prod.yml up -d --build
-
-
-## 📦 What's Included
-
-### 🛠️ Development Environment
-- **React 18** with hot reload
-- **React Router** for client-side routing
-- **Fast Refresh** for instant updates
-- **Volume mounting** for live code editing
-- **Node.js 20** Alpine-based image
-
-### 🏭 Production Environment
-- **Multi-stage build** for optimized size
-- **Nginx** web server with custom configuration
-- **Gzip compression** for faster loading
-- **Security headers** built-in
-- **Health checks** for monitoring
-- **Non-root user** for security
-
-## 🌐 Access Points
-
-| Environment | URL | Port |
-|------------|-----|------|
-| Development | http://localhost:3000 | 3000 |
-| Production | http://localhost:8080 | 8080 |
-| Health Check | http://localhost:8080/health | 8080 |
-
-## 📁 Project Structure
-
----
-docker-react/
-├── src/                    # React source code
-│   ├── App.js              # Main React component
-│   ├── App.css             # Styles
-│   └── index.js            # React entry point
-├── public/                 # Public assets
-│   └── index.html          # HTML template
-├── Dockerfile              # Production build configuration
-├── docker-compose.yml      # Development environment
-├── docker-compose.prod.yml # Production environment
-├── nginx.conf              # Nginx configuration
-├── .dockerignore           # Docker ignore rules
-├── start-dev.ps1           # Development startup script
-├── start-prod.ps1          # Production startup script
-└── README.md               # This file
----
-
-## 🛠️ Development Commands
-
----powershell
-# Start development environment
-docker-compose up -d
-
-# View logs
-docker-compose logs -f react-dev
-
-# Stop environment
-docker-compose down
-
-# Restart services
-docker-compose restart
-
-# Execute commands inside container
-docker-compose exec react-dev npm install package-name
-docker-compose exec react-dev npm test
-
-
-## 🏭 Production Commands
-
----powershell
-# Build and start production
-docker-compose -f docker-compose.prod.yml up -d --build
-
-# View production logs
-docker-compose -f docker-compose.prod.yml logs -f react-prod
-
-# Stop production environment
-docker-compose -f docker-compose.prod.yml down
-
-# Check health
-curl http://localhost:8080/health
-
-
-## 🔧 Customization
-
-### Adding New Dependencies
----powershell
-# Add to package.json, then rebuild
-docker-compose exec react-dev npm install new-package
----
-
-### Environment Variables
-Create a `.env` file in the root directory:
----env
-REACT_APP_API_URL=http://localhost:8000
-REACT_APP_ENVIRONMENT=development
----
-
-### Nginx Configuration
-Edit `nginx.conf` for custom server settings, caching rules, or proxy configurations.
-
-## 🚨 Troubleshooting
-
-### Development Issues
-- **Port 3000 in use**: Change port in `docker-compose.yml`
-- **Hot reload not working**: Ensure `CHOKIDAR_USEPOLLING=true` is set
-- **Permission errors**: Check Docker Desktop file sharing settings
-
-### Production Issues
-- **Build fails**: Check `docker-compose -f docker-compose.prod.yml logs react-prod`
-- **Nginx errors**: Verify `nginx.conf` syntax
-- **Static files not loading**: Check build output in `/app/build`
-
-### Windows-Specific
-- **File watching issues**: The environment variables `CHOKIDAR_USEPOLLING` and `WATCHPACK_POLLING` are set for Windows compatibility
-- **Path issues**: Use PowerShell or CMD, not WSL for running scripts
-
-## 📈 Performance Features
-
-### Development
-- ✅ Hot reload with Fast Refresh
-- ✅ Persistent node_modules volume
-- ✅ Optimized file watching for Windows
-
-### Production  
-- ✅ Multi-stage build (smaller image size)
-- ✅ Gzip compression
-- ✅ Static asset caching
-- ✅ Security headers
-- ✅ Health monitoring
-- ✅ Non-root user execution
-
-## 🔍 Monitoring
-
-### Health Checks
-Both environments include health checks:
-- Development: Checks React dev server
-- Production: Nginx health endpoint
-
-### Logs
----powershell
-# Development logs
-docker-compose logs -f react-dev
-
-# Production logs  
-docker-compose -f docker-compose.prod.yml logs -f react-prod
----
-
-## 🛡️ Security Features
-
-- Non-root user in production
-- Security headers (X-Frame-Options, X-Content-Type-Options, etc.)
-- Minimal attack surface with Alpine images
-- Proper signal handling with dumb-init
+🔗 **Live Demo:** [eduarte-portfolio.vercel.app](https://eduarte-portfolio.vercel.app/)
 
 ---
 
-## 🤝 Usage Tips
+## Table of Contents
 
-1. **Always use development mode** when coding
-2. **Test production builds** before deployment
-3. **Use the PowerShell scripts** for convenience
-4. **Check logs** if something doesn't work
-5. **Keep Docker Desktop updated** for best performance
+1. [About](#about)  
+2. [Features](#features)  
+3. [Tech Stack](#tech-stack)  
+5. [Getting Started](#getting-started)  
+6. [Deployment](#deployment)  
+7. [Future Improvements](#future-improvements)  
+8. [Contact](#contact)  
 
-Happy coding! 🎉
+---
+
+## About
+
+This is my very first portfolio website. I created it to:
+
+- Showcase my skills and projects  
+- Provide a professional web presence  
+- Practice building responsive web applications using modern front-end technologies  
+
+Through this project, I’ve strengthened my understanding of React components, Bootstrap styling, and responsive design principles.
+
+---
+
+## Features
+
+- **Responsive Layout** — adapts seamlessly to mobile, tablet, and desktop  
+- **Projects Section** — highlights my favorite work (with links to live demos or GitHub)  
+- **Skills Showcase** — lists the frontend technologies I use  
+- **Contact Form / Section** — lets visitors reach out or view my contact details  
+
+---
+
+## Tech Stack
+
+- **React** — UI development  
+- **Bootstrap** — styling and layout  
+- **JavaScript / JSX** — interactivity and components  
+- **HTML5 & CSS3** — structure and design  
+
+
+---
+
+## Getting Started
+
+To run this project locally:
+
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/ztifff/myFirstPortfolio.git
+   
+2. Navigate into the directory
+
+- cd myFirstPortfolio
+
+3. Install dependencies
+
+- npm install
+
+4. Start the development server
+
+- npm start
+
+## Deployment
+
+---
+
+This site is deployed on Vercel. If you want to deploy your own version, you can:
+
+- Link your GitHub repo to Vercel
+- Deploy with defaults or customize build settings
+- Set up a custom domain (if you have one)
+
+## Future Improvements
+
+---
+
+ Here are some ideas I plan to implement as I grow:
+  
+- Add a blog section to share technical write-ups
+- Improve SEO and accessibility
+- Integrate a back-end contact form (e.g., via an API)
+- Include animations or transitions for a more engaging UI
+
+## Contact
+
+---
+
+Fitzgerald Eduarte
+- Website: eduarte-portfolio.vercel.app
+- GitHub: ztifff
+-Email: you can put your email here if you want
+
+---
