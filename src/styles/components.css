@@ -37,45 +37,52 @@
     color: #ffd700; 
   }
   
-.floating-logos {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-  opacity: 0.1;
-  pointer-events: none;
-}
-
-.logo {
-  position: absolute;
-  font-size: 120px;
-  filter: blur(1px);
-  animation: float 12s ease-in-out infinite;
-}
-
-.react { top: 10%; left: 5%; animation-delay: 0s; }
-.js    { top: 50%; left: 80%; animation-delay: 4s; }
-.html  { top: 70%; left: 20%; animation-delay: 2s; }
-.css   { top: 30%; left: 60%; animation-delay: 6s; }
-.node  { top: 20%; left: 80%; animation-delay: 3s; }
-.git   { top: 60%; left: 40%; animation-delay: 7s; }
-
-@keyframes float {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0;
+  .floating-logos {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
   }
-  10% {
-    opacity: 0.25;
+  
+  .logo {
+    position: absolute;
+    font-size: 120px;
+    filter: blur(1px);
+    animation: float 12s ease-in-out infinite;
+    color: rgba(0, 0, 0, 0.35);
   }
-  90% {
-    opacity: 0.25;
+
+.react { color: #61dafb; }   /* React blue */
+.js    { color: #f7df1e; }   /* JS yellow */
+.html  { color: #e34f26; }   /* HTML orange */
+.css   { color: #1572b6; }   /* CSS blue */
+.node  { color: #68a063; }   /* Node green */
+.git   { color: #f34f29; }   /* Git red */
+  
+  .react { top: 10%; left: 5%; animation-delay: 0s; }
+  .js    { top: 50%; left: 80%; animation-delay: 4s; }
+  .html  { top: 70%; left: 20%; animation-delay: 2s; }
+  .css   { top: 30%; left: 60%; animation-delay: 6s; }
+  .node  { top: 20%; left: 80%; animation-delay: 3s; }
+  .git   { top: 60%; left: 40%; animation-delay: 7s; }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.25;
+    }
+    90% {
+      opacity: 0.25;
+    }
+    100% {
+      transform: translateY(-80px) rotate(15deg);
+      opacity: 0;
+    }
   }
-  100% {
-    transform: translateY(-80px) rotate(15deg);
-    opacity: 0;
-  }
-}
 
   
   
@@ -83,3 +90,4 @@
   
 
   
+
