@@ -1,60 +1,62 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import "bootstrap/dist/css/bootstrap.min.css";
+import FloatingLogos from "./components/FloatingLogos";
 
-// Import AOS
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+// AOS Animation Library
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
 
-  // Load saved theme on start
+  // Initialize Theme + AOS
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light"); 
-    }
 
-    // Initialize AOS
+    const darkModeEnabled = savedTheme === "dark";
+    setIsDark(darkModeEnabled);
+
+    document.documentElement.classList.toggle("dark", darkModeEnabled);
+
     AOS.init({
-      duration: 1000, // animation duration in ms
-      once: false,     // whether animation should happen only once
-      mirror: false,   // whether elements should animate out while scrolling past them
+      duration: 1000,
+      once: false,
+      mirror: false,
     });
   }, []);
 
-  // Re-initialize AOS on theme change (optional, ensures animations still work)
+  // Refresh AOS when theme changes
   useEffect(() => {
     AOS.refresh();
   }, [isDark]);
 
-  // Toggle theme
+  // Toggle Light / Dark Theme
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
 
-    if (newTheme) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
+    document.documentElement.classList.toggle("dark", newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
   };
 
   return (
-    <div className={`${isDark ? "bg-dark text-light" : "bg-white text-dark"} min-vh-100`}>
+    <div
+      className={`
+        ${isDark ? "bg-dark text-light" : "bg-white text-dark"}
+        min-vh-100
+      `}
+      style={{ position: "relative" }}
+    >
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+
+      <FloatingLogos />
 
       <main className="pb-5">
         <Routes>
@@ -62,7 +64,7 @@ export default function App() {
         </Routes>
       </main>
 
-      <Footer isDark={isDark}/>
+      <Footer isDark={isDark} />
     </div>
   );
 }

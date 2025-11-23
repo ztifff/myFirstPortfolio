@@ -4,6 +4,7 @@ import About from "../components/About";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
+import FloatingLogos from "../components/FloatingLogos";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -14,12 +15,16 @@ export default function Home({ isDark }) {
   }, []);
 
   return (
-    <>
+    <div style={{ position: "relative" }}>
+      {/* Floating background icons */}
+      <FloatingLogos />
+
+      {/* Page Sections */}
       <Hero isDark={isDark} />
       <About isDark={isDark} />
       <Skills isDark={isDark} />
       <Projects isDark={isDark} />
       <Contact isDark={isDark} />
-    </>
+    </div>
   );
 }

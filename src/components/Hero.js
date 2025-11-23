@@ -15,7 +15,7 @@ export default function Hero({ isDark }) {
       className={`d-flex align-items-center justify-content-center text-center vh-100 ${
         isDark ? "bg-dark text-light" : "bg-light text-dark"
       }`}
-      style={{ transition: "background-color 0.3s, color 0.3s" }}
+      style={{background: "transparent", transition: "background-color 0.3s, color 0.3s" }}
       data-aos="fade-down"
       data-aos-duration="1000"
     >

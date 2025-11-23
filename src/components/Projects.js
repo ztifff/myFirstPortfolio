@@ -8,7 +8,7 @@ export default function Projects({ isDark }) {
       className={`container py-5 ${
         isDark ? "bg-dark text-light" : "bg-light text-dark"
       }`}
-      style={{ transition: "background-color 0.3s, color 0.3s" }}
+      style={{ background: "transparent", transition: "background-color 0.3s, color 0.3s" }}
       data-aos="fade-up"          // animate entire section
       data-aos-duration="1000"
     >

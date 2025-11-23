@@ -37,6 +37,35 @@
     color: #ffd700; 
   }
   
+
+  .floating-logos {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  
+  .logo {
+    position: absolute;
+    font-size: 120px;
+    animation: float 12s linear infinite;
+    filter: blur(1px);
+  }
+  
+  .react { top: 10%; left: 5%; animation-delay: 0s; }
+  .js    { top: 50%; left: 80%; animation-delay: 4s; }
+  .html  { top: 70%; left: 20%; animation-delay: 2s; }
+  .css   { top: 30%; left: 60%; animation-delay: 6s; }
+  .node  { top: 20%; left: 80%; animation-delay: 3s; }
+  .git   { top: 60%; left: 40%; animation-delay: 7s; }
+  
+  @keyframes float {
+    0%   { transform: translateY(0px) rotate(0deg); opacity: .25; }
+    100% { transform: translateY(-80px) rotate(15deg); opacity: .25; }
+  }
+  
   
   
   
